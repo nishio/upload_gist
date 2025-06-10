@@ -37,8 +37,6 @@ You need a GitHub Personal Access Token with `gist` scope:
 
 ```bash
 export GIST_TOKEN="your_token_here"
-# or
-export GITHUB_TOKEN="your_token_here"
 ```
 
 ## Usage
@@ -85,7 +83,7 @@ result = upload_to_gist(
 
 ### Environment Variables
 
-- `GIST_TOKEN` or `GITHUB_TOKEN`: GitHub personal access token
+- `GIST_TOKEN`: GitHub personal access token with gist scope
 - `GIST_ID`: Default gist ID for updates (optional)
 
 ### CLI Options
