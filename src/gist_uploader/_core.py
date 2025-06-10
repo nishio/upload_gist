@@ -27,7 +27,7 @@ def upload_to_gist(
     filename : str
         File name that will appear in the gist.
     token : str, optional
-        GitHub personal access token; falls back to ``GITHUB_TOKEN``/``GH_TOKEN``.
+        GitHub personal access token; falls back to ``GIST_TOKEN``/``GITHUB_TOKEN``/``GH_TOKEN``.
     gist_id : str, optional
         If provided, the existing gist is *patched* instead of creating a new one.
     description : str, optional
@@ -46,9 +46,9 @@ def upload_to_gist(
         On missing token or HTTP error.
     """
 
-    token = token or os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN")
+    token = token or os.getenv("GIST_TOKEN") or os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN")
     if not token:
-        raise RuntimeError("GitHub token not provided. Set GITHUB_TOKEN or GH_TOKEN.")
+        raise RuntimeError("GitHub token not provided. Set GIST_TOKEN, GITHUB_TOKEN, or GH_TOKEN.")
 
     if description is None:
         description = (
