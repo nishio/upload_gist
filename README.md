@@ -36,9 +36,7 @@ You need a GitHub Personal Access Token with `gist` scope:
 3. Set it as environment variable:
 
 ```bash
-export GITHUB_TOKEN="your_token_here"
-# or
-export GH_TOKEN="your_token_here"
+export GIST_TOKEN="your_token_here"
 ```
 
 ## Usage
@@ -85,7 +83,7 @@ result = upload_to_gist(
 
 ### Environment Variables
 
-- `GITHUB_TOKEN` or `GH_TOKEN`: GitHub personal access token
+- `GIST_TOKEN`: GitHub personal access token with gist scope
 - `GIST_ID`: Default gist ID for updates (optional)
 
 ### CLI Options
@@ -135,12 +133,12 @@ jobs:
     
     - name: Upload to Gist
       env:
-        GITHUB_TOKEN: ${{ secrets.GIST_PAT }}  # PAT with gist scope
+        GIST_TOKEN: ${{ secrets.GIST_TOKEN }}  # PAT with gist scope
       run: |
         python -m gist_uploader report.json --public
 ```
 
-**Note**: GitHub Actions' default `GITHUB_TOKEN` doesn't have `gist` scope. Create a separate Personal Access Token with `gist` scope and add it as `GIST_PAT` secret.
+**Note**: GitHub Actions' default `GITHUB_TOKEN` doesn't have `gist` scope. Create a separate Personal Access Token with `gist` scope and add it as `GIST_TOKEN` secret.
 
 ## Development
 
